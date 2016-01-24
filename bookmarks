@@ -1,0 +1,21 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("first"
+ (filename . "~/Desktop/C.pdf")
+ (position . 1)
+ (page . 12)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.6604268064395358)
+ (handler . pdf-view-bookmark-jump-handler))
+("last"
+ (filename . "~/Desktop/C.pdf")
+ (position . 1)
+ (page . 12)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.38992042440318303)
+ (handler . pdf-view-bookmark-jump-handler))
+)
