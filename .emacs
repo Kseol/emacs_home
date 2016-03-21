@@ -168,5 +168,66 @@
 (add-hook 'python-mode-hook  #'linum-on)
 (add-hook 'python-mode-hook  #'elpy-mode)
 
-(elpy-use-ipython)
+;(elpy-use-ipython)
+;(require 'ipython)
+
+;(defun ipython ()
+  ;  (interactive)
+ ;   (term "/usr/bin/*ipython"))
+;(when (executable-find "ipython")
+; (setq python-shell-interpreter "ipython")
+
+;(setq-default py-shell-name "ipython")
+;(setq-default py-which-bufname "IPython")
+
+(setq python-shell-interpreter "ipython"
+       python-shell-interpreter-args "-i")
+
+ (add-to-list 'load-path
+                "~/path-to-yasnippet")
+   (require 'yasnippet)
+   (yas-global-mode 1)
+;;;;;;;;;;;;;;;
+;;; use popup menu for yas-choose-value
+(require 'popup)
+
+;; add some shotcuts in popup menu mode
+(define-key popup-menu-keymap (kbd "M-n") 'popup-next)
+(define-key popup-menu-keymap (kbd "TAB") 'popup-next)
+(define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
+(define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
+(define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
+
+(defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+  (when (featurep 'popup)
+    (popup-menu*
+     (mapcar
+      (lambda (choice)
+        (popup-make-item
+         (or (and display-fn (funcall display-fn choice))
+             choice)
+         :value choice))
+      choices)
+     :prompt prompt
+     ;; start isearch mode immediately
+     :isearch t
+     )))
+
+(setq yas-prompt-functions '(yas-popup-isearch-prompt yas-ido-prompt yas-no-prompt))
+
+(require 'flycheck)
+
+;; (defun elpy-mode ()
+;;   (when (require 'flycheck nil t)
+;;     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;     (add-hook 'elpy-mode-hook 'flycheck-mode))
+;;   )
+;выяснить как работает
+
+;(add-hook 'python-mode-hook  #'flymake-nil)
+
+;
+;(add-hook 'python-mode-hook  #'flycheck-on)
+
+
 
