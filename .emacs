@@ -231,3 +231,5 @@
 
 
 
+; https://realpython.com/blog/python/emacs-the-best-python-editor/
+; http://jupyter-notebook-beginner-guide.readthedocs.org/en/latest/what_is_jupyter.html
