@@ -274,3 +274,4 @@
 
 (add-hook 'c++-mode-hook 'ac-headers)
 (add-hook 'c-mode-hook 'ac-headers)
+;http://emacs.stackexchange.com/questions/801/how-to-get-intelligent-auto-completion-in-c
